@@ -1,0 +1,86 @@
+:root {
+  /*
+  * Colors palette
+  */
+  --background-color: #f2f2f0;
+  --black-text-color: #221918;
+
+  /*
+  * Sizes
+  */
+  --logo-size: 150px;
+
+  /*
+  * Layout
+  */
+  --padding-horizontal: 10vw;
+
+  /*
+  * Fonts attributes
+  */
+  --title-font: "Open Sans", sans-serif;
+  --paragraph-font: "Merriweather", serif;
+}
+
+/*
+* Global
+*/
+body {
+  background-color: var(--background-color);
+  overflow-x: hidden;
+}
+
+section,
+main {
+  background-color: var(--background-color);
+}
+
+/*
+* Specific
+*/
+header {
+  padding: 35px var(--padding-horizontal) 10px;
+}
+img#logo {
+  width: var(--logo-size);
+}
+
+h1 {
+  color: var(--black-text-color);
+  font-family: var(--paragraph-font);
+  font-size: 45px;
+  font-weight: 600;
+  position: fixed;
+  left: var(--padding-horizontal);
+  z-index: -1;
+}
+h1 span {
+  margin-left: 15px;
+}
+
+img#mountain {
+  width: 150%;
+  margin-top: 160px;
+}
+
+#introduction {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+  /* 11 + 24 (h3 inherit) = 35px & 17 + 18 (p inherit) = 35px */
+  margin: 11px var(--padding-horizontal) 17px;
+}
+hgroup {
+  color: var(--black-text-color);
+}
+hgroup h3 {
+  font-family: var(--title-font);
+  font-size: 24px;
+  font-weight: 700;
+}
+hgroup p {
+  font-family: var(--paragraph-font);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5em;
+}

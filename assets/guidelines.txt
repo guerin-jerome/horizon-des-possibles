@@ -1,0 +1,8 @@
+Black - brown color :
+#221918
+
+Light :
+#fffaf0
+
+Typographie :
+Open sans -> pour les titres
