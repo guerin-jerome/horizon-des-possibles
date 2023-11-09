@@ -18,10 +18,15 @@ body {
   /* Colors */
   --background-color: #f2f2f0;
   --black-text-color: #221918;
+  --green: #b0bf91;
+  --dark-green: #8a9672;
+  --blue: #c5e2e6;
+  --dark-blue: #7eb9bf;
 
   /* Layout */
   --logo-size: 150px;
   --padding-horizontal: 10vw;
+  --padding-vertical: 35px;
 
   /* Fonts */
   --title-font: "Open Sans", sans-serif;
@@ -29,6 +34,7 @@ body {
   --title-font-size: 2.5em;
   --subtitle-font-size: 1.5em;
   --paragraph-font-size: 1.1em;
+  --small-font-size: 0.7em;
 
   /* Breakpoints */
   --desktop-breakpoint: 1600px;
@@ -52,7 +58,7 @@ body {
 * Specific
 */
 header {
-  padding: 35px var(--padding-horizontal) 10px;
+  padding: var(--padding-vertical) var(--padding-horizontal) 10px;
 }
 img#logo {
   width: var(--logo-size);
@@ -76,6 +82,10 @@ h1 span {
   }
 }
 
+#mountain-container {
+  background: none;
+}
+
 img#mountain {
   display: block;
   width: 150%;
@@ -86,6 +96,46 @@ img#mountain {
   img#mountain {
     width: 270%;
     margin-top: 170px;
+  }
+}
+
+.aventure-pointer {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: var(--blue);
+  animation: infinite 1s sonar;
+}
+.aventure-pointer:before {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 8px;
+  background-color: var(--dark-blue);
+  position: absolute;
+  left: 6.5px;
+  top: 6.5px;
+}
+.aventure-pointer#aventure1 {
+  position: relative;
+  top: -260px;
+  left: 120px;
+}
+@media (max-width: 480px) {
+  .aventure-pointer#aventure1 {
+    position: relative;
+    top: -140px;
+    left: 60px;
+  }
+}
+@keyframes sonar {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
   }
 }
 
@@ -118,4 +168,18 @@ hgroup p {
   font-weight: 500;
   line-height: 1.5em;
   text-align: justify;
+}
+
+hr {
+  border: none;
+}
+hr#aventures:after {
+  content: "EXPÉRIENCES";
+}
+hr:after {
+  display: block;
+  font-family: var(--title-font);
+  font-weight: 300;
+  font-size: var(--small-font-size);
+  padding: 0 0 var(--padding-vertical) var(--padding-horizontal);
 }
