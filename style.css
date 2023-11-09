@@ -1,38 +1,51 @@
-:root {
-  /*
-  * Colors palette
-  */
-  --background-color: #f2f2f0;
-  --black-text-color: #221918;
-
-  /*
-  * Sizes
-  */
-  --logo-size: 150px;
-
-  /*
-  * Layout
-  */
-  --padding-horizontal: 10vw;
-
-  /*
-  * Fonts attributes
-  */
-  --title-font: "Open Sans", sans-serif;
-  --paragraph-font: "Merriweather", serif;
-}
-
 /*
 * Global
 */
+html,
 body {
-  background-color: var(--background-color);
   overflow-x: hidden;
+  font-size: 100%;
+  margin: 0;
+}
+/* To keep h1 parallax effect */
+* {
+  position: relative;
+  z-index: 2;
+  background-color: var(--background-color);
 }
 
-section,
-main {
-  background-color: var(--background-color);
+:root {
+  /* Colors */
+  --background-color: #f2f2f0;
+  --black-text-color: #221918;
+
+  /* Layout */
+  --logo-size: 150px;
+  --padding-horizontal: 10vw;
+
+  /* Fonts */
+  --title-font: "Open Sans", sans-serif;
+  --paragraph-font: "Merriweather", serif;
+  --title-font-size: 2.5em;
+  --subtitle-font-size: 1.5em;
+  --paragraph-font-size: 1.1em;
+
+  /* Breakpoints */
+  --desktop-breakpoint: 1600px;
+  --laptop-breakpoint: 1024px;
+  --tablet-breakpoint: 834px;
+  --mobile-breakpoint: 480px;
+}
+@media (max-width: 480px) {
+  :root {
+    /* Layout */
+    --padding-horizontal: 8vw;
+
+    /* Fonts */
+    --title-font-size: 2em;
+    --subtitle-font-size: 1.2em;
+    --paragraph-font-size: 1em;
+  }
 }
 
 /*
@@ -48,19 +61,32 @@ img#logo {
 h1 {
   color: var(--black-text-color);
   font-family: var(--paragraph-font);
-  font-size: 45px;
+  font-size: var(--title-font-size);
   font-weight: 600;
   position: fixed;
   left: var(--padding-horizontal);
-  z-index: -1;
+  z-index: 1;
 }
 h1 span {
   margin-left: 15px;
 }
+@media (max-width: 480px) {
+  h1 span {
+    margin-left: 0;
+  }
+}
 
 img#mountain {
+  display: block;
   width: 150%;
   margin-top: 160px;
+  background: none;
+}
+@media (max-width: 480px) {
+  img#mountain {
+    width: 270%;
+    margin-top: 170px;
+  }
 }
 
 #introduction {
@@ -68,19 +94,28 @@ img#mountain {
   flex-direction: row;
   column-gap: 30px;
   /* 11 + 24 (h3 inherit) = 35px & 17 + 18 (p inherit) = 35px */
-  margin: 11px var(--padding-horizontal) 17px;
+  padding: 11px var(--padding-horizontal) 17px;
+}
+@media (max-width: 480px) {
+  #introduction {
+    flex-direction: column;
+  }
+  hgroup:first-child p {
+    margin-bottom: 0;
+  }
 }
 hgroup {
   color: var(--black-text-color);
 }
 hgroup h3 {
   font-family: var(--title-font);
-  font-size: 24px;
+  font-size: var(--subtitle-font-size);
   font-weight: 700;
 }
 hgroup p {
   font-family: var(--paragraph-font);
-  font-size: 18px;
+  font-size: var(--paragraph-font-size);
   font-weight: 500;
   line-height: 1.5em;
+  text-align: justify;
 }
