@@ -27,6 +27,13 @@
   --regular-weight: 500;
   --light: 400;
   --lighter: 300;
+
+  /* Fonts */
+  --title: var(--bold) var(--big) var(--serif);
+  --subtitle: var(--bolder) var(--medium) var(--sans-serif);
+  --paragraph: var(--regular-weight) var(--regular-size) var(--serif);
+  --badge: var(--light) var(--small-regular) var(--sans-serif);
+  --small: var(--lighter) var(--small-size) var(--sans-serif);
 }
 @media (max-width: 480px) {
   :root {
@@ -40,14 +47,6 @@
     --small-regular: 0.8em;
     --small-size: 0.7em;
   }
-}
-:root {
-  /* Fonts */
-  --title: var(--bold) var(--big) var(--serif);
-  --subtitle: var(--bolder) var(--medium) var(--sans-serif);
-  --paragraph: var(--regular-weight) var(--regular-size) var(--serif);
-  --badge: var(--light) var(--small-regular) var(--sans-serif);
-  --small: var(--lighter) var(--small-size) var(--sans-serif);
 }
 html,
 body {
@@ -97,7 +96,7 @@ sup.finished {
 header {
   padding: var(--spacing-vertical) var(--spacing-horizontal) 10px;
 }
-img#logo {
+header img#logo {
   width: 150px;
 }
 
@@ -118,51 +117,48 @@ h1 span {
 #mountain-container {
   background: none;
 }
-
-img#mountain {
+#mountain-container img#mountain {
   display: block;
   width: 150%;
   margin-top: 160px;
   background: none;
 }
 @media (max-width: 480px) {
-  img#mountain {
+  #mountain-container img#mountain {
     width: 270%;
     margin-top: 170px;
   }
 }
 
-.aventure-pointer {
+#mountain-container a.roadtrip-pointer {
   display: block;
   width: 24px;
   height: 24px;
   border-radius: 12px;
-  background-color: var(--blue);
   animation: infinite 1s sonar;
   z-index: 3;
 }
-.aventure-pointer:before {
+#mountain-container a.roadtrip-pointer:before {
   content: "";
   display: block;
   width: 11px;
   height: 11px;
   border-radius: 8px;
-  background-color: var(--dark-blue);
   position: absolute;
   left: 6.5px;
   top: 6.5px;
 }
-.aventure-pointer#aventure1 {
-  position: relative;
-  left: 140px;
-  top: 260px;
+#mountain-container a.roadtrip-pointer.waiting {
+  background-color: var(--blue);
 }
-@media (max-width: 480px) {
-  .aventure-pointer#aventure1 {
-    position: relative;
-    left: 60px;
-    top: 220px;
-  }
+#mountain-container a.roadtrip-pointer.waiting:before {
+  background-color: var(--dark-blue);
+}
+#mountain-container a.roadtrip-pointer.finished {
+  background-color: var(--green);
+}
+#mountain-container a.roadtrip-pointer.finished:before {
+  background-color: var(--dark-green);
 }
 @keyframes sonar {
   from {
@@ -172,8 +168,20 @@ img#mountain {
     transform: scale(0.8);
   }
 }
+#mountain-container a.roadtrip-pointer#roadtrip-pointer1 {
+  position: relative;
+  left: 140px;
+  top: 260px;
+}
+@media (max-width: 480px) {
+  #mountain-container a.roadtrip-pointer#roadtrip-pointer1 {
+    position: relative;
+    left: 60px;
+    top: 220px;
+  }
+}
 
-#introduction {
+section#introduction {
   display: flex;
   flex-direction: row;
   column-gap: 30px;
@@ -181,10 +189,10 @@ img#mountain {
   padding: 11px var(--spacing-horizontal) 17px;
 }
 @media (max-width: 480px) {
-  #introduction {
+  section#introduction {
     flex-direction: column;
   }
-  hgroup:first-child p {
+  section#introduction hgroup:first-child p {
     margin-bottom: 0;
   }
 }
@@ -193,66 +201,67 @@ hr {
   border: none;
   margin: 0;
 }
-hr#aventures-hr:after {
-  content: "EXPÉRIENCES";
-}
 hr:after {
+  text-transform: uppercase;
   display: block;
   font: var(--small);
   padding: 0 0 var(--spacing-vertical) var(--spacing-horizontal);
 }
+hr#roadtrip-hr:after {
+  content: "expériences";
+}
 
-#aventures {
+section#roadtrips {
   padding: 0 var(--spacing-horizontal) var(--spacing-vertical);
   display: flex;
   flex-direction: column;
   row-gap: 50px;
 }
 @media (max-width: 480px) {
-  #aventures {
+  section#roadtrips {
     row-gap: var(--spacing-vertical);
   }
 }
-.aventure {
+article.roadtrip {
   display: grid;
   grid-template-columns: 2fr 4fr;
   grid-gap: var(--spacing-vertical);
   align-items: center;
 }
 @media (max-width: 480px) {
-  .aventure {
+  article.roadtrip {
     display: flex;
     flex-direction: column;
     row-gap: var(--spacing-vertical);
   }
 }
-.aventure .pictures {
+article.roadtrip aside.pictures {
   display: grid;
   grid-template-columns: 3fr 2fr;
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 15px;
 }
-.aventure .pictures img {
+article.roadtrip aside.pictures img {
   width: 100%;
   object-fit: cover;
   filter: grayscale(80%);
 }
-.aventure .pictures img.square-img {
+article.roadtrip aside.pictures img.square-img {
   aspect-ratio: 1 / 1;
 }
-.aventure .pictures img.first {
+article.roadtrip aside.pictures img.main {
   grid-column: 1;
   grid-row: 1 / span 2;
   height: 100%;
 }
-.aventure .pictures img.second {
+article.roadtrip aside.pictures img.map {
   grid-column: 2;
   grid-row: 1;
 }
-.aventure .pictures img.third {
+article.roadtrip aside.pictures img.others {
   grid-column: 2;
   grid-row: 2;
 }
-.aventure .description h3 {
+article.roadtrip main.description h3 {
   margin: 10px 0;
 }
