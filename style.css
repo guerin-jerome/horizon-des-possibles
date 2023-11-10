@@ -265,3 +265,9 @@ article.roadtrip aside.pictures img.others {
 article.roadtrip main.description h3 {
   margin: 10px 0;
 }
+
+footer p {
+  font: var(--small);
+  text-align: center;
+  padding-bottom: calc(var(--spacing-vertical) - 11.2px);
+}
