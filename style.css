@@ -3,8 +3,8 @@
   /* Colors */
   --background: #f2f2f0;
   --black: #221918;
-  --green: #b0bf91;
-  --dark-green: #8a9672;
+  --green: #c5e6c7;
+  --dark-green: #80bd87;
   --blue: #c5e2e6;
   --dark-blue: #7eb9bf;
 
@@ -43,7 +43,7 @@
     /* Fonts */
     --big: 2em;
     --medium: 1.2em;
-    --regular-size: 1em;
+    --regular-size: 0.9em;
     --small-regular: 0.8em;
     --small-size: 0.7em;
   }
