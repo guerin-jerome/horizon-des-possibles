@@ -1,6 +1,54 @@
-/*
-* Global
-*/
+/* Visual identity */
+:root {
+  /* Colors */
+  --background: #f2f2f0;
+  --black: #221918;
+  --green: #b0bf91;
+  --dark-green: #8a9672;
+  --blue: #c5e2e6;
+  --dark-blue: #7eb9bf;
+
+  /* Layout */
+  --spacing-horizontal: 10vw;
+  --spacing-vertical: 35px;
+
+  /* Fonts family */
+  --sans-serif: "Open Sans", sans-serif;
+  --serif: "Merriweather", serif;
+  /* Fonts size */
+  --big: 2.5em;
+  --medium: 1.5em;
+  --regular-size: 1.1em;
+  --small-regular: 0.9em;
+  --small-size: 0.7em;
+  /* Fonts weight */
+  --bolder: 700;
+  --bold: 600;
+  --regular-weight: 500;
+  --light: 400;
+  --lighter: 300;
+}
+@media (max-width: 480px) {
+  :root {
+    /* Layout */
+    --spacing-horizontal: 8vw;
+
+    /* Fonts */
+    --big: 2em;
+    --medium: 1.2em;
+    --regular-size: 1em;
+    --small-regular: 0.8em;
+    --small-size: 0.7em;
+  }
+}
+:root {
+  /* Fonts */
+  --title: var(--bold) var(--big) var(--serif);
+  --subtitle: var(--bolder) var(--medium) var(--sans-serif);
+  --paragraph: var(--regular-weight) var(--regular-size) var(--serif);
+  --badge: var(--light) var(--small-regular) var(--sans-serif);
+  --small: var(--lighter) var(--small-size) var(--sans-serif);
+}
 html,
 body {
   overflow-x: hidden;
@@ -11,66 +59,51 @@ body {
 * {
   position: relative;
   z-index: 2;
-  background-color: var(--background-color);
+  background-color: var(--background);
+}
+h1,
+h2,
+h3,
+p,
+sup {
+  color: var(--black);
+}
+h1 {
+  font: var(--title);
+}
+h2,
+h3 {
+  font: var(--subtitle);
+}
+p {
+  font: var(--paragraph);
+  line-height: 1.5em;
+  text-align: justify;
+}
+sup {
+  text-transform: uppercase;
+  font: var(--badge);
+  padding: 2.5px 6px;
+  border-radius: 2.5px;
+}
+sup.waiting {
+  background-color: var(--blue);
+}
+sup.finished {
+  background-color: var(--green);
 }
 
-:root {
-  /* Colors */
-  --background-color: #f2f2f0;
-  --black-text-color: #221918;
-  --green: #b0bf91;
-  --dark-green: #8a9672;
-  --blue: #c5e2e6;
-  --dark-blue: #7eb9bf;
-
-  /* Layout */
-  --logo-size: 150px;
-  --padding-horizontal: 10vw;
-  --padding-vertical: 35px;
-
-  /* Fonts */
-  --title-font: "Open Sans", sans-serif;
-  --paragraph-font: "Merriweather", serif;
-  --title-font-size: 2.5em;
-  --subtitle-font-size: 1.5em;
-  --paragraph-font-size: 1.1em;
-  --small-font-size: 0.7em;
-
-  /* Breakpoints */
-  --desktop-breakpoint: 1600px;
-  --laptop-breakpoint: 1024px;
-  --tablet-breakpoint: 834px;
-  --mobile-breakpoint: 480px;
-}
-@media (max-width: 480px) {
-  :root {
-    /* Layout */
-    --padding-horizontal: 8vw;
-
-    /* Fonts */
-    --title-font-size: 2em;
-    --subtitle-font-size: 1.2em;
-    --paragraph-font-size: 1em;
-  }
-}
-
-/*
-* Specific
-*/
+/* Project specific */
 header {
-  padding: var(--padding-vertical) var(--padding-horizontal) 10px;
+  padding: var(--spacing-vertical) var(--spacing-horizontal) 10px;
 }
 img#logo {
-  width: var(--logo-size);
+  width: 150px;
 }
 
 h1 {
-  color: var(--black-text-color);
-  font-family: var(--paragraph-font);
-  font-size: var(--title-font-size);
-  font-weight: 600;
   position: fixed;
-  left: var(--padding-horizontal);
+  left: var(--spacing-horizontal);
   z-index: 1;
 }
 h1 span {
@@ -145,7 +178,7 @@ img#mountain {
   flex-direction: row;
   column-gap: 30px;
   /* 11 + 24 (h3 inherit) = 35px & 17 + 18 (p inherit) = 35px */
-  padding: 11px var(--padding-horizontal) 17px;
+  padding: 11px var(--spacing-horizontal) 17px;
 }
 @media (max-width: 480px) {
   #introduction {
@@ -155,32 +188,71 @@ img#mountain {
     margin-bottom: 0;
   }
 }
-hgroup {
-  color: var(--black-text-color);
-}
-hgroup h3 {
-  font-family: var(--title-font);
-  font-size: var(--subtitle-font-size);
-  font-weight: 700;
-}
-hgroup p {
-  font-family: var(--paragraph-font);
-  font-size: var(--paragraph-font-size);
-  font-weight: 500;
-  line-height: 1.5em;
-  text-align: justify;
-}
 
 hr {
   border: none;
+  margin: 0;
 }
-hr#aventures:after {
+hr#aventures-hr:after {
   content: "EXPÉRIENCES";
 }
 hr:after {
   display: block;
-  font-family: var(--title-font);
-  font-weight: 300;
-  font-size: var(--small-font-size);
-  padding: 0 0 var(--padding-vertical) var(--padding-horizontal);
+  font: var(--small);
+  padding: 0 0 var(--spacing-vertical) var(--spacing-horizontal);
+}
+
+#aventures {
+  padding: 0 var(--spacing-horizontal) var(--spacing-vertical);
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+}
+@media (max-width: 480px) {
+  #aventures {
+    row-gap: var(--spacing-vertical);
+  }
+}
+.aventure {
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  grid-gap: var(--spacing-vertical);
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .aventure {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-vertical);
+  }
+}
+.aventure .pictures {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 15px;
+}
+.aventure .pictures img {
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(80%);
+}
+.aventure .pictures img.square-img {
+  aspect-ratio: 1 / 1;
+}
+.aventure .pictures img.first {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  height: 100%;
+}
+.aventure .pictures img.second {
+  grid-column: 2;
+  grid-row: 1;
+}
+.aventure .pictures img.third {
+  grid-column: 2;
+  grid-row: 2;
+}
+.aventure .description h3 {
+  margin: 10px 0;
 }
