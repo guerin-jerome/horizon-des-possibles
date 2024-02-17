@@ -31,6 +31,7 @@
   /* Fonts */
   --title: var(--bold) var(--big) var(--serif);
   --subtitle: var(--bolder) var(--medium) var(--sans-serif);
+  --description: var(--regular-weight) var(--regular-size) var(--sans-serif);
   --paragraph: var(--regular-weight) var(--regular-size) var(--serif);
   --badge: var(--light) var(--small-regular) var(--sans-serif);
   --small: var(--lighter) var(--small-size) var(--sans-serif);
@@ -64,6 +65,7 @@ body {
 h1,
 h2,
 h3,
+h4,
 p,
 sup {
   color: var(--black);
@@ -74,6 +76,9 @@ h1 {
 h2,
 h3 {
   font: var(--subtitle);
+}
+h4 {
+  font: var(--description);
 }
 p {
   font: var(--paragraph);
@@ -95,9 +100,8 @@ sup.finished {
 a:not(.roadtrip-pointer) {
   font: var(--link);
   text-decoration: none;
-  text-transform: uppercase;
   color: var(--black);
-  border-bottom: 3.5px solid var(--dark-green);
+  border-bottom: 3px solid var(--dark-green);
   transition: all 0.2s ease-in-out;
 }
 a:not(.roadtrip-pointer):hover {
@@ -200,11 +204,21 @@ h1 span {
   left: 140px;
   top: 260px;
 }
+#mountain-container a.roadtrip-pointer#roadtrip-pointer2 {
+  position: relative;
+  left: 235px;
+  top: 340px;
+}
 @media (max-width: 480px) {
   #mountain-container a.roadtrip-pointer#roadtrip-pointer1 {
     position: relative;
     left: 60px;
     top: 220px;
+  }
+  #mountain-container a.roadtrip-pointer#roadtrip-pointer2 {
+    position: relative;
+    left: 110px;
+    top: 250px;
   }
 }
 
@@ -298,6 +312,9 @@ article.roadtrip aside.pictures img.others {
 }
 article.roadtrip main.description h3 {
   margin: 10px 0;
+}
+article.roadtrip main.description h4 {
+  margin: 0;
 }
 
 footer p {
