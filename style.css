@@ -207,24 +207,34 @@ h1 span {
 }
 #mountain-container a.roadtrip-pointer#roadtrip-pointer1 {
   position: relative;
-  left: 140px;
-  top: 260px;
+  left: 130px;
+  top: 280px;
 }
 #mountain-container a.roadtrip-pointer#roadtrip-pointer2 {
   position: relative;
-  left: 235px;
+  left: 200px;
   top: 340px;
+}
+#mountain-container a.roadtrip-pointer#roadtrip-pointer3 {
+  position: relative;
+  left: 255px;
+  top: 370px;
 }
 @media (max-width: 480px) {
   #mountain-container a.roadtrip-pointer#roadtrip-pointer1 {
     position: relative;
-    left: 60px;
-    top: 220px;
+    left: 62px;
+    top: 240px;
   }
   #mountain-container a.roadtrip-pointer#roadtrip-pointer2 {
     position: relative;
-    left: 110px;
-    top: 250px;
+    left: 90px;
+    top: 262px;
+  }
+  #mountain-container a.roadtrip-pointer#roadtrip-pointer3 {
+    position: relative;
+    left: 118px;
+    top: 267px;
   }
 }
 
